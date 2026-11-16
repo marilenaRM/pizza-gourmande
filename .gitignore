@@ -1,0 +1,9 @@
+# Whitelist: this folder holds unrelated local files, only the site goes to Git.
+/*
+!/.gitignore
+!/.github/
+!/index.html
+!/css/
+!/js/
+!/img/
+!/build.sh
