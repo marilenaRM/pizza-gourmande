@@ -10,12 +10,12 @@ SITE_URL="${SITE_URL%/}"
 
 rm -rf dist
 mkdir dist
-cp -r index.html css js img dist/
+cp -r index.html mentions-legales.html css fonts js img dist/
 
-sed -i "s|__SITE_URL__|${SITE_URL}|g" dist/index.html
+sed -i "s|__SITE_URL__|${SITE_URL}|g" dist/*.html
 
 if [[ "${1:-}" != "--prod" ]]; then
-    sed -i 's|<meta charset="utf-8">|<meta charset="utf-8">\n    <meta name="robots" content="noindex, nofollow">|' dist/index.html
+    sed -i 's|<meta charset="utf-8">|<meta charset="utf-8">\n    <meta name="robots" content="noindex, nofollow">|' dist/*.html
 fi
 
 cat > dist/robots.txt <<EOF
@@ -30,6 +30,10 @@ cat > dist/sitemap.xml <<EOF
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>${SITE_URL}/</loc>
+        <lastmod>$(date +%F)</lastmod>
+    </url>
+    <url>
+        <loc>${SITE_URL}/mentions-legales.html</loc>
         <lastmod>$(date +%F)</lastmod>
     </url>
 </urlset>

@@ -3,7 +3,9 @@
 !/.gitignore
 !/.github/
 !/index.html
+!/mentions-legales.html
 !/css/
+!/fonts/
 !/js/
 !/img/
 !/build.sh
